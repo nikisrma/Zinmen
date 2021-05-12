@@ -3,9 +3,16 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  base_api_url:'https://beautyappadmin.stage02.obdemo.com/api/v2/',
+  // base_api_url:'http://beautyapp.dev21.obtech.inet/api/v2/',
+  googleClientId:'1038745383524-aomv7797g8d7lk317rksl8kgrdc798jg.apps.googleusercontent.com',
+  facebookClientId:'1700365896800966',
+  googleMapApiKey:'AIzaSyAzwqCO7sws38TcKsEqh5ke7pIN_ER2UZM',
+  // applicationId : 'sq0idp-LujUQP-PjkHEl49HsRTXSw',
+  applicationId : 'sandbox-sq0idb-juIRlZUybv3WDEonoFD_QQ',
+  locationId : 'LRRPPQN9JV9SJ' 
 };
-
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.

@@ -1,0 +1,107 @@
+<app-header></app-header>
+
+<!-- <div class="log-sign-wrap onlyLogin_wrap" style="background-image: url('assets/img/login-bg.jpg');">
+    <div class="container">
+        <div class="logsign_row">
+            <div class="logsign_left">
+                <div class="logsign_ltext">
+                    <div *ngIf="pageContent" [innerHTML]="pageContent?.description">
+                        <h1>Welcome Back <br/>Login in your Account</h1>
+                        <p>Interested in our spa services? We want your spa experience to be a memorable one.</p>
+                    </div>                                     
+
+                    <div class="logsign_lsocial">
+                        <a [href]="socialLinksData?.facebook_link" target="blank"*ngIf="socialLinksData?.facebook_link">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a [href]="socialLinksData?.linkedin_link" target="blank" *ngIf="socialLinksData?.linkedin_link">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a [href]="socialLinksData?.youtube_link" target="blank" *ngIf="socialLinksData?.youtube_link">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="logsign_right">
+                <div class="logsign_form_box">
+                    <div style="text-align: center;">
+                        <ngx-switch
+                            status = "true"
+                            onText="Customer"
+                            offText="Provider"
+                            onColor="green"
+                            offColor="red"
+                            size="small"
+                            (statusChange)="onFlagChange($event)">
+                        </ngx-switch>
+                    </div><br>
+                    <div class="logsign_wsocial"><br>
+                        <h5> LOGIN WITH SOCIAL PROFILE</h5>
+                        <div class="logsign_wsocial_circle">
+                            <a href="javascript:void(0);"  (click)="socialSignIn('google')">
+                                <i class="fab fa-google"></i>
+                            </a>
+                            <a href="javascript:void(0);"  (click)="socialSignIn('facebook')">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                        </div>
+                    </div>
+  
+                    <div class="logsign_form">
+                        <form focusInvalidInput [formGroup]="LoginForm">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="">Email ID</label>
+                                        <div class="logsign_input">
+                                            <input type="text" formControlName="email" autocomplete="username">
+                                        </div>
+                                        <div *ngIf="submitted && f.email.errors" class="help-inline">
+                                            <div *ngIf="f.email.errors.required">The email field is required.</div>
+                                            <div *ngIf="f.email.errors.pattern">The email is invalid.</div>
+                                          </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group"
+                                        <label for="">Password</label>
+                                        <div class="logsign_input logsign_input_pass">
+                                            <input type="password" #password formControlName="password" autocomplete="current-password">
+                                            <a href="javascript:void(0);" class="pass-hs-btn" (click)="showPassword()">
+                                                 <i [ngClass]="(password.type == 'password') ? 'fas fa-eye-slash' : 'fas fa-eye' "></i>
+                                            </a>
+                                        </div>
+                                        <div *ngIf="submitted && f.password.errors" class="help-inline">
+                                            <div *ngIf="f.password.errors.required">The password field is required.</div>
+                                            <div *ngIf="f.password.errors.minlength">Minimum 6 digits are required.</div>
+                                            <div *ngIf="f.password.errors.maxlength">Maximum 16 digits are allowed.</div>
+                                            <div *ngIf="f.password.errors.cannotContainSpace">The white spaces are not allowed.</div>
+                                          </div>
+                                        <a href="javascript:void(0);" [routerLink]="['/forget-password']" class="fgt-pass">
+                                            Forgot Password?
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button class="logsign_btn mb-3"  (click)="loginUser()">
+                                Login Now
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="dhn_acc">
+                      <p> Don't have an account? </p>
+                      <a href="javascript:;" [routerLink]="['/signup','customer']">Become a Customer</a> 
+                      <span> or</span> 
+                      <a href="javascript:;" [routerLink]="['/become-beautician']">Become a Provider</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<app-footer></app-footer>

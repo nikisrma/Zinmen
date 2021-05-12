@@ -1,0 +1,472 @@
+<section class="homeHeroSlider" *ngIf="sliders.length > 0">
+
+    <owl-carousel [options]="homeSlide">
+      <div class="item" *ngFor="let slide of sliders" [ngStyle]="{'background-image':'url('+slide.image+')'}">
+        <img [src]="slide.image" alt="slider">
+      </div>
+      
+    </owl-carousel>
+  
+    <div class="sliderContent">
+      <div class="sliderLogo">
+        <img src="assets/img/original_logo.png" class=" wow fadeInDown" data-wow-delay=".10s" alt="">
+          </div>
+      <div class="sliderMenu">
+        <ul>
+          <li>
+            <a href="javascript:void(0);" [routerLink]="['/']">HOME</a>
+          </li>
+  
+          <li>
+            <a href="javascript:void(0);" [routerLink]="['/about']">ABOUT US</a>
+          </li>
+  
+          <li>
+            <a href="javascript:void(0);" [routerLink]="['/faq']">FAQ</a>
+          </li>
+          <li *ngIf="userData">
+            <a href="javascript:void(0);"
+              [routerLink]="[(userData.user_role_id == 3 ? '/provider/dashboard': (userData.user_role_id == 4  ? '/provider/dashboard':'/customer/dashboard'))]">DASHBOARD</a>
+          </li>
+          <li *ngIf="userData">
+            <a href="javascript:void(0);" (click)="logout()">LOGOUT</a>
+          </li>
+          <li *ngIf="!userData">
+            <a href="javascript:void(0);" [routerLink]="['/signin']">SIGN IN</a>
+          </li>
+        </ul>
+      </div>
+      <div class="sliderHeading" *ngIf="sliderInnerData?.description">
+        <h1 class="wow fadeInUp" [innerHTML]="sliderInnerData.description"></h1>
+      </div>
+      <div class="sliderSearch">
+        <div *ngIf="!userData || userData?.user_role_id == 2" class="sliderSearchInner wow fadeIn" data-wow-delay=".40s">
+          <input type="text" #search_data (keyup.enter)="search(search_data.value)" placeholder="Search for services">
+          <button type="button" (click)="search(search_data.value)">
+            <i class="ion-ios-search"></i>
+          </button>
+        </div>
+        <div *ngIf="!userData || userData?.user_role_id == 2"><br>
+          <a class="btn btn-primary" href="javascript:void(0);" [routerLink]="['/browse-services']">BOOK SERVICES
+            NOW</a><br><br>
+          </div>
+      </div>
+      <div class="logoLink" *ngIf="!userData">
+        <a href="javascript:void(0);" [routerLink]="['/become-beautician']">Become a Service Provider</a>
+      </div>
+    </div>
+  </section>
+  <div class="container">
+    <div class="download_app_section" style="background-image: url('assets/img/download-app-bg.png');">
+      <h3> <span>Download</span> Our App </h3>
+      <div class="download_app_btns">
+        <a href="javascript:void(0);">
+          <img src="assets/img/app-store-nw.png" alt="">
+        </a>
+        <a href="javascript:void(0);">
+          <img src="assets/img/play-store-nw.png" alt="">
+        </a>
+      </div>
+    </div>
+  </div>
+
+
+  <section class="stepSectionProcess" *ngIf="(userData && userData?.user_role_id == 2) || !userData">
+    <div class="container">
+      <div class="row stepCardHOme_row">
+        <div class="col-lg-4">
+          <div class="stepCardHOme">
+            <div class="homeCardTop_wall" style="background-image:url('assets/img/img-5.png') ;">
+              <img src="assets/img/img-5.png" alt="prode">
+            </div>
+            <div class="stepCardHOmeDethead">
+              <h4>Choose Your Location</h4>
+              <p class="stepCardHOmeDetail">Your home, office, event, we are here to connect you with the best Zen
+                Provider there is!</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="stepCardHOme">
+            <div class="homeCardTop_wall" style="background-image:url('assets/img/img-6.png') ;">
+              <img src="assets/img/img-6.png" alt="prode">
+            </div>
+  
+            <div class="stepCardHOmeDethead">
+              <h4>Pick your Luxury Service</h4>
+              <p class="stepCardHOmeDetail">Services offered anywhere from getting your nails done, to a massage that was
+                needed for that long week at work. Our providers come to you and treat you like the queen/king you are.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="stepCardHOme">
+            <div class="homeCardTop_wall" style="background-image:url('assets/img/img-7.png') ;">
+              <img src="assets/img/img-7.png" alt="prode">
+            </div>
+  
+            <div class="stepCardHOmeDethead">
+              <h4>Book your Date and Time</h4>
+              <p class="stepCardHOmeDetail">Confirm your date and time with the Zen provider you choose, sit back and
+                relax and we will do the rest of the work!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </section>
+    
+
+  
+<section class="stepSectionProcess" *ngIf="userData && userData?.user_role_id == 3">
+    <div class="container">
+      <div class="row stepCardHOme_row stepCardHOme_row1">
+        <div class="col-md-6 col-lg-3">
+          <div class="stepCardHOme">
+            <div class="homeCardTop_wall" style="background-image:url('assets/img/img-1.png') ;">
+              <img src="assets/img/img-1.png" alt="prode">
+            </div>
+  
+            <div class="stepCardHOmeDethead">
+              <h4>Become Your Own Boss</h4>
+              <p class="stepCardHOmeDetail">Set your own schedule and never have to ask for a day off!</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="stepCardHOme">
+  
+            <div class="homeCardTop_wall" style="background-image:url('assets/img/img-2.png') ;">
+              <img src="assets/img/img-2.png" alt="prode">
+            </div>
+  
+            <div class="stepCardHOmeDethead">
+              <h4>Less Expenses and More Money in your Pocket</h4>
+              <p class="stepCardHOmeDetail">No more high commission fees or location rental fees. Keep the money you
+                deserve.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="stepCardHOme">
+  
+            <div class="homeCardTop_wall" style="background-image:url('assets/img/img-3.png') ;">
+              <img src="assets/img/img-3.png" alt="prode">
+            </div>
+  
+            <div class="stepCardHOmeDethead">
+              <h4>Book those Dream Clients</h4>
+              <p class="stepCardHOmeDetail">ZenMeIn provides access to a broader customer base, allowing you to get your
+                name out there and quickly build your dream clientele. Build the business you have always dreamt of!</p>
+            </div>
+          </div>
+        </div>
+  
+        <div class="col-md-6 col-lg-3">
+          <div class="stepCardHOme">
+  
+            <div class="homeCardTop_wall" style="background-image:url('assets/img/img-4.png') ;">
+              <img src="assets/img/img-4.png" alt="prode">
+            </div>
+  
+            <div class="stepCardHOmeDethead">
+              <h4>Business Exposure</h4>
+              <p class="stepCardHOmeDetail">ZenMeIn promotes your brand without the added cost of marketing.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </section>
+  
+  <section class="heroAfterSection">
+    <div class="container">
+      <div *ngIf="(userData && userData?.user_role_id == 2) || !userData" [innerHTML]="welcomeBlock?.description">
+      </div>
+  
+      <div *ngIf="(userData && userData?.user_role_id == 3)">
+        <h3 class="heroAfterHeading wow fadeIn">
+          Are you a Salon/Barber/Spa Owner?
+        </h3>
+        <div class="heroAfterText">
+          <p class="wow fadeIn" data-wow-delay=".30s">
+            Dreaming of offering the newest fad but do not have the space to add that service? Sign up today and grow your
+            clientele base and expand your team even if your salon space is limited. Make more money without the added
+            expenses!
+          </p>
+        </div>
+      </div>
+  
+      <div class="heroAfterAction wow fadeInUp" data-wow-delay=".40s"
+        *ngIf="(userData && userData?.user_role_id == 2) || !userData">
+        <a href="javascript:void(0);" [routerLink]="['/browse-services']">BOOK SERVICES NOW</a>
+      </div>
+    </div>
+  </section>
+  
+
+  <section class="serviceSection">
+    <div class="container">
+      <div class="serviceCardRow">
+        <owl-carousel-o [options]="customOptions">
+          <ng-template carouselSlide *ngFor="let category of categoriesData; let i= index">
+            <div class="serviceCard">
+              <a href="javascript:void(0);" (click)="jobSubCategory(category)">
+                <figure>
+                  <img *ngIf="category && category.image" [src]="category.image" alt="">
+                </figure>
+                <h5>{{category.category_name}}</h5>
+                <div class="serviceCardContent">
+                  <p [innerHtml]="category.description | truncate:100"></p>
+                </div>
+                <div class="serviceCardAction">
+                  <a href="javascript:void(0);" (click)="jobSubCategory(category)">KNOW MORE</a>
+                </div>
+              </a>
+            </div>
+          </ng-template>
+        </owl-carousel-o>
+
+      </div>
+      <div class="serviceCount">
+        <div class="serviceCountRow">
+          <div class="serviceCountCol">
+            <div class="serviceCountColrow">
+              <div class="serviceCountCol">
+                <div class="serviceNumber">
+                  <span class="countNumber" [countUp]="countData?.services"></span>
+                </div>
+                <div class="serviceName">
+                  Services
+                </div>
+              </div>
+              <div class="serviceCountCol">
+                <div class="serviceNumber">
+                  <span class="countNumber" [countUp]="countData?.service_providers"></span>
+                </div>
+                <div class="serviceName">
+                  Professional Experts
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="serviceCountCol">
+            <div class="serviceCountColrow">
+              <div class="serviceCountCol">
+                <div class="serviceNumber">
+                  <span class="countNumber" [countUp]="countData?.totalOrders"></span>
+                </div>
+                <div class="serviceName">
+                  Bookings
+                </div>
+              </div>
+              <div class="serviceCountCol">
+                <div class="serviceNumber">
+                  <span class="countNumber" [countUp]="countData?.customers"></span>
+                </div>
+                <div class="serviceName">
+                  Customers
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  </section>
+
+  <section class="homeTabsSection">
+    <div class="container">
+      
+              </div>
+  
+      <div class="serviceProviderList d-none" *ngIf="(userData && userData?.user_role_id == 2) || !userData">
+        <div *ngIf="bookServiceProviderBlock" [innerHTML]="bookServiceProviderBlock?.description">
+          <h3 *ngIf="(userData && userData?.user_role_id == 2) || !userData">
+            <span class="wow fadeInUp">Check our professional</span>
+            <span class="wow fadeInUp" data-wow-delay=".10s">Service Providers</span>
+          </h3>
+  
+          <h3 *ngIf="userData && userData?.user_role_id == 3">
+  
+            <span class="wow fadeInUp" data-wow-delay=".10s">Service Providers</span>
+          </h3>
+          <div class="serviceProviderText" *ngIf="(userData && userData?.user_role_id == 2) || !userData">
+            <p>
+              We offer a variety of facial services to suit your individual skin care needs. Our estheticians use only the
+              finest Bioelements products based on trace minerals, essential oils, and plant extracts.
+            </p>
+          </div>
+        </div>
+        <ul class="providerList wow fadeIn providerImgData" *ngIf="providerListData">
+          <li *ngFor="let provider_data of providerListData">
+            <a *ngIf="(userData && userData?.user_role_id == 2) || !userData" href="javascript:void(0);"
+              [routerLink]="['/provider-profile-detais/',provider_data?.id]">
+  
+              <img [src]="provider_data?.image" alt="" style="max-width: 150px;height: 150px;">
+            </a>
+  
+            <a *ngIf="userData && userData?.user_role_id == 3" href="javascript:void(0);"
+              [routerLink]="['/provider-services']">
+  
+              <img [src]="provider_data?.image" alt="" style="max-width: 150px;height: 150px;">
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="homeHireSection">
+        <div *ngIf="hireExpertBlock" [innerHTML]="hireExpertBlock?.description">
+          
+        </div>
+  
+        <div class="homeHireRow">
+  
+          <div class="homeHireCol" *ngFor="let expert of expertsData | slice:0:6;let i = index">
+            <!-- <a *ngIf="(userData && userData?.user_role_id == 2) || !userData" href="javascript:void(0);"
+               [routerLink]="['/provider-profile-detais'>,expert?.id]"> 
+              <div class="homeHireCrad wow fadeInUp" [attr.data-wow-delay]="(i+1)/10+'s'">
+                <div class="homeHireImage"
+                  [ngStyle]="{'background-image': expert.image? 'url('+expert.image+')':'url(assets/img/profile.jpg)'}">
+                </div>
+                <div class="homeHireData">
+                  <h5 class="hireName">{{expert.name | titlecase}}</h5>
+                  <span *ngFor="let list of expert.workout_type">{{list.category_name}}</span>
+                   </div>
+              </div>
+            </a>
+            <a *ngIf="(userData && userData?.user_role_id == 3)" href="javascript:void(0);"
+              [routerLink]="['/provider-profile-detais/',expert?.id]">
+              <div class="homeHireCrad wow fadeInUp" [attr.data-wow-delay]="(i+1)/10+'s'">
+                <div class="homeHireImage"
+                  [ngStyle]="{'background-image': expert.image? 'url('+expert.image+')':'url(assets/img/profile.jpg)'}">
+                </div>
+                <div class="homeHireData">
+                  <h5 class="hireName">{{expert.name | titlecase}}</h5>
+                  <span *ngFor="let list of expert.workout_type">{{list.category_name}}</span>
+                  </div>
+              </div>
+            </a>-->
+          </div>
+        </div>
+      </div>
+    
+  </section>
+  <section *ngIf="!userData" class="slectPackagesection">
+    <div class="container">
+      <div *ngIf="packagesBlock" class="d-none" [innerHTML]="packagesBlock?.description">
+      </div>
+  
+      
+      <div *ngIf="!userData  && planData.length > 0"
+        class="deshbord_box member_pricbox">
+        <div class="desbord_search" *ngIf="planData.length > 0">
+          <h2 class="whiteDashboardHeader">Membership Plans</h2>
+        </div>
+        <div class="mobileNewMemberScroll" *ngIf="planData.length > 0">
+          <div class="member_shipbox align-items-start row no-gutters newMemberPlanTable">
+  
+            <div class="col-4 col-md-4 newMemberPlanCol" *ngIf="planData.length > 0">
+              <div class="member_pric ">
+                <div class="wlr_box border-left-0">
+                </div>
+                <div class="wlr_box border-left-0">
+                </div>
+                <div class="member_pricelist headingListTable">
+                  <ul>
+  
+                    <li>Beauty Providers Included </li>
+                    <li>Fee Per Booking</li>
+                    <li>Contract</li>
+                    <li>Monthly Membership</li>
+                    <li>Add Stylist/per Stylist</li>
+                    <li>Background Check Fee</li>
+                    <li>&nbsp;</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-10  row no-gutters mx-auto col-md-8 newMemberPlanCol_2">
+              <div class="col-12 row no-gutters mobAbsHead">
+                <div class="col provider_col_1">
+                  <div class="newMemberHead ">Service Provider Individual</div>
+                </div>
+                <div class="col provider_col_2">
+                  <div class="newMemberHead">Service Provider - Salon/ Parler / Spa</div>
+                </div>
+              </div>
+  
+              <div class="col-10 col-md-3 newMemberPlanCol_under" *ngFor="let plan of planData; let i = index"
+                (mouseover)="addClassPlan(i)">
+                <div class="member_pric mb-4 mb-md-0 bg-white">
+                  <div class="wlr_box">
+                    <!-- <p>{{plan.name}}</p> -->
+                  </div>
+                  <div class="member_pricelist">
+                    <ul class="mins">
+                      <!-- <li>{{plan.beauty_providers_included}}
+                      </li>
+                      <li>{{plan.fee_per_booking}}%
+                      </li>
+                      <li *ngIf="plan.contract"> {{plan.contract}} Year Contract </li>
+                      <li *ngIf="!plan.contract"> NO CONTRACT </li>
+                      <li> ${{plan.monthly_membership}}
+                      </li>
+                      <li *ngIf="i != 0"> ${{plan.per_stylist}}</li>
+                      <li *ngIf="i == 0"> N/A</li>
+                      <li>${{ plan.background_check_fee }}</li> -->
+                      <li><a href="javascript:;" (click)="selectPlat(plan)">Select</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+  
+            </div>
+  
+            <!-- <div class="col-12" *ngIf="planData.length === 0">
+              <p> No Plan Found!</p>
+            </div>
+   -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="testimonialsSection">
+    <div class="container">
+      <h3>Customer Testimonials</h3>
+      <div class="testimonialsSlide" *ngIf="testimonialsData.length > 0">
+        <owl-carousel [options]="testimonialsOption">
+          <div class="item" *ngFor="let testimonial of testimonialsData">
+            <div class="testimonialsCard">
+              <div class="testimonialsRow">
+                <div class="testimonialsImage">
+                  <div class="testimonialUserImg" *ngIf="testimonial.image"
+                    [ngStyle]="{'background-image': 'url('+testimonial.image+')'}"></div>
+                  <span class="testimonialName">{{testimonial.name | titlecase}}</span>
+                  <span class="testimonialDesg">Head of Assistant, WallMart</span>
+                </div>
+                <div class="testimonialsData">
+                  <p [innerHTML]="testimonial.description | truncate: 150"> </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </owl-carousel>
+      </div>
+    </div>
+  
+    <div class="container">
+      <div class="homeWelcomeMsg">
+        <div *ngIf="appointmentBlock" [innerHTML]="appointmentBlock?.description">
+            </div>
+        <a *ngIf="(userData && userData?.user_role_id == 2) || !userData" href="javascript:void(0);"
+          [routerLink]="['/browse-service']">BOOK SERVICES NOW</a>
+      </div>
+    </div>
+  </section>
+  <app-footer></app-footer>

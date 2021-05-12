@@ -1,0 +1,109 @@
+<footer class="pageFooter" id="footer">
+    <div class="container">
+        <div class="footerRow">
+            <div class="footerLogoSection">
+                <div class="footerLogo">
+                    <img src="assets/img/logo-top.png" class="footerLogoTop" alt="" [routerLink]="['/']">
+                    <img src="assets/img/logo-bottom.png" class="" alt="" [routerLink]="['/']">
+                </div>
+                <div class="footerAddress">
+                    <p>198 West 21th Street, NY, the USA</p>
+                    <p>2-847-567-5765 | M: help@zenmein.com</p>
+                </div>
+                <div class="footerSocilaIcons">
+                    <ul>
+                        <li *ngIf="socialLinksData?.facebook_link">
+                            <a [href]="socialLinksData?.facebook_link" target="blank" >
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                        </li>
+                        <li *ngIf="socialLinksData?.linkedin_link">
+                            <a [href]="socialLinksData?.linkedin_link" target="blank">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </li>
+                        <li *ngIf="socialLinksData?.youtube_link">
+                            <a [href]="socialLinksData?.youtube_link" target="blank">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footerLinkSection">
+                <div class="footerLinkRow">
+                    <div class="footerLinkCol">
+                        <h5 class="footerLinksHead">Company</h5>
+                        <ul>
+                            <li>
+                                <a href="javascript:void(0);" [routerLink]="['/about']">About Us</a>
+                            </li>
+                            <!-- <li>
+                                <a href="javascript:void(0);">Pricing</a>
+                            </li> -->
+                            <li>
+                                <a href="javascript:void(0);" [routerLink]="['/browse-services']">Services</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" [routerLink]="['/faq']">FAQ</a>
+                            </li>
+                            <!-- <li>
+                                <a href="javascript:void(0);">Blogs</a>
+                            </li> -->
+                            <li>
+                                <a href="javascript:void(0);" [routerLink]="['/contact']" >Contact Us</a>
+                                <!-- [routerLink]="['/contact']" -->
+                            </li>
+
+                            <li>
+                                <a href="javascript:void(0);" [routerLink]="['/cms/terms-conditions']" >Terms and Conditions</a>
+                                <!-- [routerLink]="['/contact']" -->
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footerLinkCol">
+                        <h5 class="footerLinksHead">Services</h5>
+                        <ul>
+                            <li *ngFor="let category of categoies">
+                                <a href="javascript:void(0);" (click)="jobSubCategory(category)">{{category.category_name}}</a>
+                            </li>                         
+                        </ul>
+                    </div>
+                    <div class="footerLinkCol">
+                        <h5 class="footerLinksHead">Help Center</h5>
+                        <ul>
+                            <li>
+                                <a href="javascript:void(0);" [routerLink]="['/invest']">Want to Invest ?</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" [routerLink]="['/become-beautician']">Become an Expert</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" [routerLink]="['/signup/customer']">Become a Customor</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footerLinkCol">
+                        <h5 class="footerLinksHead">Download Our App
+                        </h5>
+                        <ul>
+                            <li *ngIf="socialLinksData?.app_store_link">
+                                <a [href]="socialLinksData?.app_store_link" target="blank" >
+                                    <img src="assets/img/app-store.png" alt="">
+                                </a>
+                            </li>
+                            <li *ngIf="socialLinksData?.play_store_link">
+                                <a [href]="socialLinksData?.play_store_link"   target="blank">
+                                    <img src="assets/img/play-store.png" alt="">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footerCopyRight">
+            Copyright © 2021 zenmeinbeauty.com - All Rights Reserved.
+        </div>
+    </div>
+</footer>

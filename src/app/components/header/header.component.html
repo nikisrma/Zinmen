@@ -1,0 +1,76 @@
+<div class="headerOverlay" [ngClass]="menuShow ? 'menu-show' : ''" (click)="menuToggle()"></div>
+<header class="pageHeader" id="pageHeader">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="top_nave">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <a class="navbar-brand" href="javascript:void(0);" [routerLink]="['']">
+                            <div class="headerLogo">
+                                <img src="assets/img/logo-bottom.png" alt="">
+                            </div>
+                        </a>
+                        <button class="navbar-toggler newMenuToggler" [ngClass]="menuShow ? 'menu-show menu-opened' : ''" (click)="menuToggle()">
+                            <span></span>
+                        </button>
+                        <div class="collapse navbar-collapse" [ngClass]="menuShow ? 'menu-show' : ''">
+                            <a class="navbar-brand headerLogoforMobile" href="javascript:void(0);" [routerLink]="['']">
+                                <div class="headerLogo">
+                                    <img src="assets/img/logo-top.png" class="logoTop" alt="">
+                                </div>
+                            </a>
+
+                            <a class="navbar-brand headerLogoforMobile hide-992" href="javascript:void(0);" [routerLink]="['']">
+                                <img src="assets/img/logo.png" class="logomobile" alt="">
+                            </a>
+
+                            <ul class="navbar-nav mx-auto"> 
+                                <li class="nav-item">
+                                    <a class="nav-link" href="javascript:;" [routerLink]="['/']">Home</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="javascript:;" [routerLink]="['/about']">ABOUT US</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="javascript:;" [routerLink]="['/faq']">FAQ</a>
+                                </li>
+                                <!-- <li class="nav-item">
+                                    <a class="nav-link" href="javascript:void(0);" [routerLink]="['/browse-services']">SERVICES</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="javascript:void(0);" [routerLink]="['/provider-services']">SERVICE PROVIDERS</a>
+                                </li> -->
+                                <!-- <li class="nav-item">
+                                    <a class="nav-link" href="javascript:void(0);" [routerLink]="['/browse-services']">BOOK A SERVICE</a>
+                                </li> -->
+                                <!-- <li class="nav-item">
+                                    <a class="nav-link" href="#">EXPERTS</a>
+                                </li> -->
+                                <li *ngIf="userData && (currentUrl != 'email-verification')" class="nav-item">
+                                    <a  class="nav-link" href="javascript:void(0);" [routerLink]="[userData.user_role_id == 3 ? '/provider/dashboard':'/customer/dashboard']" >Dashboard</a>
+                                </li>
+                                <li class="nav-item" *ngIf="userData && (currentUrl != 'email-verification')">
+                                    <a class="nav-link" href="javascript:void(0);"  (click)="logout()">Logout</a>
+                                </li>                              
+                                <li *ngIf="!userData" class="nav-item">
+                                    <a class="nav-link"  href="javascript:void(0);" [routerLink]="['/signin']">SIGN IN</a>
+                                </li>
+                                <li class="nav-item bookBtn" *ngIf="currentUrl !=='provider-signup'">
+                                    <a class="nav-link" href="javascript:void(0);" [routerLink]="['/browse-services']">BOOK SERVICES NOW</a>
+                                </li>
+                            </ul>
+<!-- 
+                            <ul class="navbar-nav">
+                                <li class="nav-item bookBtn">
+                                    <a class="nav-link" href="#">BOOK SERVICES NOW</a>
+                                </li>
+                            </ul> -->
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
